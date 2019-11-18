@@ -3,8 +3,7 @@ package pl.tomskr.rosary_manager.domain;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Data
 @Entity
@@ -15,7 +14,7 @@ public class RosaryGroup {
     private Long id;
     private String name;
 
-    @OneToMany(mappedBy = "group", fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
-    private Set<RosaryMember> rosaryMembers  = new HashSet<>();
+    @OneToMany(mappedBy = "groupRos", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<RosaryMember> rosaryMembers  = new ArrayList<>();
+
 }

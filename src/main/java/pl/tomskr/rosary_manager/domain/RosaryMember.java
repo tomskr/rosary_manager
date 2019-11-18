@@ -5,6 +5,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Objects;
 
 @Data
 @Entity
@@ -17,9 +18,9 @@ public class RosaryMember {
     private String lastName;
     private String role;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "group_id", nullable = false)
-    private RosaryGroup group;
+    @ManyToOne
+    @JoinColumn(name = "GROUP_ID", nullable = false)
+    private RosaryGroup groupRos;
 
     private String phone;
     private String mobile;
@@ -29,4 +30,5 @@ public class RosaryMember {
     private Date nameDay;
     private Date birthDate;
     private String notes;
+
 }

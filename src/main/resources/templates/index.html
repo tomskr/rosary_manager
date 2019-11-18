@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet"
+          href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+<!--Test web jars-->
+<div class="container"><br/>
+    <div class="alert alert-success">
+        <a href="#" class="close" data-dismiss="alert"
+           aria-label="close">×</a>
+        <strong>Success!</strong> It is working as we expected.
+    </div>
+</div>
+<!--Table Index-->
+<div class=pl.tomskr.rosary_manager.domain.RosaryGroup"container-fluid" style="margin-top: 20px">
+    <table class="table table-hover ">
+        <thead class="thead-inverse">
+        <tr>
+            <th>ID</th>
+            <th>Nazwa</th>
+        </tr>
+        </thead>
+        <tr th:remove="all">
+            <td>1</td>
+            <td>Tomasz</td>
+        </tr>
+        <tr th:remove="all">
+            <td>12333</td>
+            <td>Bożena</td>
+        </tr>
+                <tr th:each="rosaryGroup:${rosaryGroups}">
+                    <td th:text="${rosaryGroup.id}">334</td>
+                    <td th:text="${rosaryGroup.name}">Kartol</td>
+                </tr>
+    </table>
+</div>
+</body>
+</html>
