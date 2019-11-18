@@ -39,6 +39,7 @@
                 <tr th:each="rosaryGroup:${rosaryGroups}">
                     <td th:text="${rosaryGroup.id}">334</td>
                     <td th:text="${rosaryGroup.name}">Kartol</td>
+                    <td><a href="#" th:href="@{'/index/' + ${rosaryGroup.id} + '/show'}">View</a></td>
                 </tr>
     </table>
 </div>

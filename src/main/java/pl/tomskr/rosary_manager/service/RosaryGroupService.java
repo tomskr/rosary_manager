@@ -7,4 +7,5 @@ import java.util.Set;
 
 public interface RosaryGroupService {
     List<RosaryGroup> getRosaryGroups();
+    RosaryGroup findById(Long id);
 }
