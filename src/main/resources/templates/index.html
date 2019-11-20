@@ -8,26 +8,20 @@
 
     <link rel="stylesheet"
           href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 <body>
-<!--Test web jars-->
-<div class="container"><br/>
-    <div class="alert alert-success">
-        <a href="#" class="close" data-dismiss="alert"
-           aria-label="close">×</a>
-        <strong>Success!</strong> It is working as we expected.
-    </div>
-</div>
-<!--Table Index-->
-<div class=pl.tomskr.rosary_manager.domain.RosaryGroup"container-fluid" style="margin-top: 20px">
+<h1>Wspólnota Żywego Różańca Swiętego Sanktuarium Matki Bożej Fatimskiej</h1>
+<h3>Gdańsk żabianka</h3>
+<div class=pl.tomskr.rosary_manager.domain.RosaryGroup"container-fluid">
     <table class="table table-hover ">
-        <thead class="thead-inverse">
         <tr>
             <th>ID</th>
             <th>Nazwa</th>
+            <th>Pokaż</th>
+            <th>Edytuj</th>
+            <th>Usuń</th>
         </tr>
-        </thead>
         <tr th:remove="all">
             <td>1</td>
             <td>Tomasz</td>
@@ -39,9 +33,12 @@
                 <tr th:each="rosaryGroup:${rosaryGroups}">
                     <td th:text="${rosaryGroup.id}">334</td>
                     <td th:text="${rosaryGroup.name}">Kartol</td>
-                    <td><a href="#" th:href="@{'/index/' + ${rosaryGroup.id} + '/show'}">View</a></td>
+                    <td><a href="#" th:href="@{'/index/' + ${rosaryGroup.id} + '/show'}">Pokaż</a></td>
+                    <td><a href="#" th:href="@{'/index/' + ${rosaryGroup.id} + '/edit'}">Edytuj</a></td>
+                    <td><a href="#" th:href="@{'/index/' + ${rosaryGroup.id} + '/delete'}">Usuń</a></td>
                 </tr>
     </table>
+    <a href="#" th:href="@{'index/new'}" class="btn btn-info" role="button">New</a>
 </div>
 </body>
 </html>

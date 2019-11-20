@@ -29,4 +29,14 @@ public class RosaryGroupServiceImpl implements RosaryGroupService {
         }
         return optionalRosaryGroup.get();
     }
+
+    @Override
+    public void deleteById(Long id) {
+        rosaryGroupRepository.deleteById(id);
+    }
+
+    @Override
+    public void save(RosaryGroup rosaryGroup) {
+        rosaryGroupRepository.save(rosaryGroup);
+    }
 }

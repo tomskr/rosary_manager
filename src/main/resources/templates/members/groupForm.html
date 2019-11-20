@@ -19,26 +19,15 @@
     </div>
 </div>
 <!--Table Index-->
-<table class="table table-hover ">
-    <thead class="thead-inverse">
-    <tr>
-        <th>ID</th>
-        <th>Nazwa</th>
-    </tr>
-    </thead>
-    <tr th:remove="all">
-        <td>1</td>
-        <td>Tomasz</td>
-    </tr>
-    <tr th:remove="all">
-        <td>12333</td>
-        <td>Bożena</td>
-    </tr>
-    <tr th:each="member:${rosaryGroup.rosaryMembers}">
-        <td th:text="${member.memberId}">334</td>
-        <td th:text="${member.firstName}">Kartol</td>
-        <td th:text="${member.lastName}">Kartol</td>
-    </tr>
-</table>
+<div class="container-fluid" style="margin-top: 20px">
+    <div class="row">
+        <form  th:object="${rosaryGroup}" th:action="@{/index}" method="post">
+            <input type="hidden" class="form-control" th:field="*{id}"/>
+            <label>Group Name</label>
+            <input type="text" class="form-control" th:field="*{name}"/>
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+</div>
 </body>
 </html>
