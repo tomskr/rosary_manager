@@ -22,23 +22,39 @@
 <table class="table table-hover ">
     <thead class="thead-inverse">
     <tr>
-        <th>ID</th>
-        <th>Nazwa</th>
+        <th>Id</th>
+        <th>Imie</th>
+        <th>Nazwisko</th>
+        <th>Telefon</th>
+        <th>Komórka</th>
+        <th>Kod-poczt</th>
+        <th>Adress</th>
+        <th>Rok Wst</th>
+        <th>Urodziny</th>
+        <th>Imieniny</th>
+        <th>Notatki</th>
+        <th>Edytuj</th>
+        <th>Usuń</th>
     </tr>
     </thead>
-    <tr th:remove="all">
-        <td>1</td>
-        <td>Tomasz</td>
-    </tr>
-    <tr th:remove="all">
-        <td>12333</td>
-        <td>Bożena</td>
-    </tr>
-    <tr th:each="member:${rosaryGroup.rosaryMembers}">
-        <td th:text="${member.memberId}">334</td>
-        <td th:text="${member.firstName}">Kartol</td>
-        <td th:text="${member.lastName}">Kartol</td>
-    </tr>
+    <tbody>
+        <tr th:each="member:${rosaryGroup.rosaryMembers}">
+            <td th:text="${member.memberId}">334</td>
+            <td th:text="${member.firstName}">Kartol</td>
+            <td th:text="${member.lastName}">Kartol</td>
+            <td th:text="${member.phone}">Kartol</td>
+            <td th:text="${member.mobile}">334</td>
+            <td th:text="${member.postCode}">Kartol</td>
+            <td th:text="${member.address}">Kartol</td>
+            <td th:text="${#calendars.format(member.joiningDate,'YYYY')}">Kartol</td>
+            <td th:text="${#calendars.format(member.birthDate,'dd-MM-YYYY')}">Kartol</td>
+            <td th:text="${#calendars.format(member.nameDay,'dd-MM-YYYY')}">Kartol</td>
+            <td th:text="${member.notes}">Kartol</td>
+            <td><a href="#" th:href="@{'/index/' + ${rosaryGroup.id} + '/show/'+${member.memberId} +'/edit'}">Edytuj</a></td>
+            <td><a href="#" th:href="@{'/index/' + ${rosaryGroup.id} + '/show/'+${member.memberId} + '/delete'}">Usuń</a></td>
+        </tr>
+    </tbody>
 </table>
+<a href="#" th:href="@{'/index/' + ${rosaryGroup.id} +'/show/new'}" class="btn btn-info" role="button" id="new-button">New</a>
 </body>
 </html>

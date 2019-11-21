@@ -45,8 +45,7 @@ public class RosaryGroupController {
         return "members/groupForm";
     }
 
-    @GetMapping
-    @RequestMapping("index/{id}/delete")
+    @RequestMapping(value = "index/{id}/delete", method = RequestMethod.GET)
     public String deleteById(@PathVariable String id){
         log.debug("Deleting id " + id);
         rosaryGroupService.deleteById(Long.valueOf(id));

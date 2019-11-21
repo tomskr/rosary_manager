@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/memberForm.css">
+<!--    <script type="text/javascript" src="js/index.js"></script>-->
+</head>
+<body>
+<h1>Text</h1>
+<div class="container-fluid">
+    <div class="row">
+        <form  th:object="${rosaryMember}" th:action="@{'/index/' + ${rosaryMember.groupRos.id} + '/show/'}" method="post">
+            <div class="container-fluid">
+                <input type="hidden"  class="form-control" th:field="*{memberId}"/>
+                <input type="hidden" class="form-control" th:field="*{groupRos.id}"/>
+                <div class="row">
+                    <div class="col-sm">
+                        Imie:
+                        <input  class="form-control" th:field="*{firstName}"/>
+                    </div>
+                    <div class="col-sm">
+                        Nazwisko:
+                        <input  class="form-control" th:field="*{lastName}"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        Telefon:
+                        <input  class="form-control" th:field="*{phone}"/>
+                    </div>
+                    <div class="col-sm">
+                        Komórka:
+                        <input  class="form-control" th:field="*{mobile}"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        Adress:
+                        <input  class="form-control" th:field="*{address}"/>
+                    </div>
+                    <div class="col-sm">
+                        Kod-Pocztowy:
+                        <input  class="form-control" th:field="*{postCode}"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        Data Przyjęcia:
+                        <input  class="form-control" th:field="*{joiningDate}"/>
+                    </div>
+                    <div class="col-sm">
+                        Urodziny:
+                        <input  class="form-control" th:field="*{birthDate}"/>
+                    </div>
+                    <div class="col-sm">
+                        Imieniny:
+                        <input  class="form-control" th:field="*{nameDay}"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        Notatki:
+                        <input  class="form-control" th:field="*{notes}"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <input id="submit" type="submit" value="Submit" />
+                    </div>
+                    <div class="col-sm">
+                        Rola:
+                        <select type="text" class="form-control">
+                            <option selected>Róża</option>
+                            <option>Zelatorka</option>
+                            <option>Zastempca Zel.</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
+<!--todo add labels-->
