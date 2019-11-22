@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -11,14 +11,43 @@
 </head>
 <body>
     <div class = "container-fluid">
-      <h1>Wspólnota Żywego Różańca Sw. - Kalendarz</h1>
+        <h1>Wspólnota Żywego Różańca Sw. - Kalendarz</h1>
         <div class="container-fluid">
             <table>
                 <tr>
-                    <td>Hello</td>
+                    <th>Nr Róży, wezwanie, zelator</th>
+                    <th id="STY"></th>
+                    <th id="LUT"></th>
+                    <th id="MAR"></th>
+                    <th id="KWI"></th>
+                    <th id="MAJ"></th>
+                    <th id="CZE"></th>
+                    <th id="LIP"></th>
+                    <th id="SIE"></th>
+                    <th id="WRZ"></th>
+                    <th id="PAZ"></th>
+                    <th id="LIS"></th>
+                    <th id="GRU"></th>
                 </tr>
-                <tr>
-                    <td>Everyone</td>
+                <tr th:each="rosaryGroup:${rosaryGroups}" class = "table-row">
+                    <td th:text="${rosaryGroup.name}">
+                    </td>
+                    <td>
+                        <svg width="80" height="50" th:style="'position: relative; left: 140px'">
+                            <rect  x=5 y=5 rx="20" ry="20" width="70" height="30" style="fill:aqua;stroke:black;stroke-width:3" />
+                        </svg>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                 </tr>
             </table>
         </div>
