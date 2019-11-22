@@ -37,7 +37,7 @@ public class RosaryMember {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date birthDate;
     private String notes;
-
+    private Long memberOrder;
     public RosaryMember() {
     }
 
