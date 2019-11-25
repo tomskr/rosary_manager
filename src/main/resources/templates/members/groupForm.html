@@ -7,25 +7,29 @@
     <title>Title</title>
     <link rel="stylesheet"
           href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="/css/groupForm.css">
 </head>
 <body>
-<!--Test web jars-->
-<div class="container"><br/>
-    <div class="alert alert-success">
-        <a href="#" class="close" data-dismiss="alert"
-           aria-label="close">×</a>
-        <strong>Success!</strong> It is working as we expected.
-    </div>
-</div>
-<!--Table Index-->
+
 <div class="container-fluid" style="margin-top: 20px">
     <div class="row">
-        <form  th:object="${rosaryGroup}" th:action="@{/index}" method="post">
-            <input type="hidden" class="form-control" th:field="*{id}"/>
-            <label>Group Name</label>
-            <input type="text" class="form-control" th:field="*{name}"/>
-            <input type="submit" value="Submit" />
+        <form  th:object="${rosaryGroup}" th:action="@{'/index/' + ${rosaryGroup.groupNumber} + '/edit'}" method="post">
+            <input type="hidden" class="form-control" id = "gId" th:field="*{id}"/>
+            <label for="gNr">Droup Id: </label>
+            <input type="text" class="form-control" id="gNr" th:field="*{groupNumber}"/>
+            <label for="gName">Nazwa Grupy:</label>
+            <input type="text" class="form-control" id = "gName" th:field="*{name}"/>
+            <input type="submit" value="Submit" id="submit-button"/>
+            <!--operation choice-->
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="opOption" id="opOption1" value="switch" checked>
+                <label class="form-check-label" for="opOption1"> Swich </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="opOption" id="exampleRadios2" value="insert">
+                <label class="form-check-label" for="exampleRadios2"> Insert </label>
+            </div>
+
         </form>
     </div>
 </div>

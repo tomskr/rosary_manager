@@ -16,7 +16,7 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>ID</th>
+                <th>Ng</th>
                 <th>Nazwa</th>
                 <th>Pokaż</th>
                 <th>Edytuj</th>
@@ -25,16 +25,17 @@
         </thead>
         <tbody>
             <tr th:each="rosaryGroup:${rosaryGroups}">
-                <td th:text="${rosaryGroup.id}">334</td>
+                <td th:text="${rosaryGroup.groupNumber}">3</td>
                 <td th:text="${rosaryGroup.name}">Kartol</td>
-                <td><a href="#" th:href="@{'/index/' + ${rosaryGroup.id} + '/show'}">Pokaż</a></td>
-                <td><a href="#" th:href="@{'/index/' + ${rosaryGroup.id} + '/edit'}">Edytuj</a></td>
-                <td><a href="#" th:href="@{'/index/' + ${rosaryGroup.id} + '/delete'}">Usuń</a></td>
+                <td><a href="#" th:href="@{'/index/' + ${rosaryGroup.groupNumber} + '/show'}">Pokaż</a></td>
+                <td><a href="#" th:href="@{'/index/' + ${rosaryGroup.groupNumber} + '/edit'}">Edytuj</a></td>
+                <td><a href="#" th:href="@{'/index/' + ${rosaryGroup.groupNumber} + '/delete'}">Usuń</a></td>
             </tr>
         </tbody>
     </table>
     <a href="#" th:href="@{'index/new'}" class="btn btn-info" role="button" id="new-button">New</a>
     <a href="#" th:href="@{'index/harmonogram'}" class="btn btn-info" role="button" id="harmonogram-button">Harmonogram</a>
+    <a href="#" th:href="@{'index/sort'}" class="btn btn-info" role="button" id="sort-button">Sort</a>
 </div>
 </body>
 </html>

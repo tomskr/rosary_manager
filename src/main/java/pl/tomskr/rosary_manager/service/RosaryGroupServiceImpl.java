@@ -24,10 +24,21 @@ public class RosaryGroupServiceImpl implements RosaryGroupService {
     @Override
     public RosaryGroup findById(Long id) {
         Optional<RosaryGroup> optionalRosaryGroup = rosaryGroupRepository.findById(id);
-        if(!optionalRosaryGroup.isPresent()){
-            throw new RuntimeException("Group not found");
-        }
+            if(!optionalRosaryGroup.isPresent()){
+                throw new RuntimeException("Group not found");
+            }
         return optionalRosaryGroup.get();
+    }
+
+    @Override
+    public RosaryGroup findByNr(int nr) {
+        List<RosaryGroup> rosaryGroupList = rosaryGroupRepository.findAll();
+        for(RosaryGroup temp:rosaryGroupList){
+            if(temp.getGroupNumber()==nr){
+                return temp;
+            }
+        }
+        return null;
     }
 
     @Override
@@ -38,5 +49,10 @@ public class RosaryGroupServiceImpl implements RosaryGroupService {
     @Override
     public void save(RosaryGroup rosaryGroup) {
         rosaryGroupRepository.save(rosaryGroup);
+    }
+
+    @Override
+    public void saveAll(List<RosaryGroup> rosaryGroupList) {
+        rosaryGroupRepository.saveAll(rosaryGroupList);
     }
 }

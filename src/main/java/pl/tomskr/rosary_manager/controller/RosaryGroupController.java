@@ -7,6 +7,10 @@ import org.springframework.web.bind.annotation.*;
 import pl.tomskr.rosary_manager.domain.RosaryGroup;
 import pl.tomskr.rosary_manager.service.RosaryGroupService;
 
+
+import java.util.Comparator;
+import java.util.List;
+
 @Slf4j
 @Controller
 public class RosaryGroupController {
@@ -19,24 +23,48 @@ public class RosaryGroupController {
     @RequestMapping({"", "/", "/index"})
     public String getIndexPage(Model model) {
         log.debug("Getting index page");
-        model.addAttribute("rosaryGroups", rosaryGroupService.getRosaryGroups());
+        List<RosaryGroup> rosaryGroupList = rosaryGroupService.getRosaryGroups();
+        rosaryGroupList.sort(Comparator.comparing(RosaryGroup::getGroupNumber));
+        model.addAttribute("rosaryGroups", rosaryGroupList);
         return "index";
+    }
+
+    @RequestMapping({"index/sort"})
+    public String sortRosaryGroup(){
+    return  "redirect:/";
     }
 
 
     @RequestMapping(value = "index/new", method = RequestMethod.GET)
     public String newGroup(Model model){
         model.addAttribute("rosaryGroup", new RosaryGroup());
-        return "members/groupForm";
+        return "members/groupFormNew";
     }
 
 
     @RequestMapping(value = "/index", method = RequestMethod.POST)
     public String newGroupSubmit(@ModelAttribute RosaryGroup rosaryGroup) {
+        List<RosaryGroup> tempList = rosaryGroupService.getRosaryGroups();
+        log.debug("new id: "+ ((long)tempList.size() + 1L));
+        rosaryGroup.setId((long)tempList.size() + 1L);
+        rosaryGroup.setGroupNumber(tempList.size() + 1);
         rosaryGroupService.save(rosaryGroup);
         return "redirect:/";
     }
 
+    @RequestMapping(value = "/index/{nr}/edit", method = RequestMethod.POST)
+    public String editGroupSubmit(@ModelAttribute RosaryGroup rosaryGroup,@PathVariable String nr,@RequestParam("opOption") String option) {
+        if(option == "switch") {
+            RosaryGroup temp = rosaryGroupService.findByNr(rosaryGroup.getGroupNumber());
+            temp.setGroupNumber(Integer.valueOf(nr));
+            rosaryGroupService.save(temp);
+            rosaryGroupService.save(rosaryGroup);
+        }else{
+//            todo: insert option
+        }
+        return "redirect:/";
+
+    }
 
     @RequestMapping(value = "index/{id}/edit", method = RequestMethod.GET)
     public String EditById(@PathVariable String id,Model model){

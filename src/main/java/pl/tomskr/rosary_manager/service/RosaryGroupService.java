@@ -8,6 +8,8 @@ import java.util.Set;
 public interface RosaryGroupService {
     List<RosaryGroup> getRosaryGroups();
     RosaryGroup findById(Long id);
+    RosaryGroup findByNr(int nr);
     void deleteById(Long id);
     void save(RosaryGroup rosaryGroup);
+    void saveAll(List<RosaryGroup> rosaryGroupList);
 }
