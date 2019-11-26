@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import pl.tomskr.rosary_manager.domain.RosaryGroup;
 
 @Repository
-public interface RosaryGroupRepository extends JpaRepository<RosaryGroup,Long> {
+public interface RosaryGroupRepository extends CrudRepository<RosaryGroup,Long> {
 }

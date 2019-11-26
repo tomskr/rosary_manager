@@ -14,12 +14,16 @@ public class RosaryGroupServiceImpl implements RosaryGroupService {
         this.rosaryGroupRepository = rosaryGroupRepository;
     }
 
+    //Get list of all rosary group entries
+
     @Override
     public List<RosaryGroup> getRosaryGroups() {
         List<RosaryGroup> rosaryGroupList = new ArrayList<>();
         rosaryGroupRepository.findAll().iterator().forEachRemaining(rosaryGroupList::add);
         return rosaryGroupList;
     }
+
+    //Find rosary group entry by id
 
     @Override
     public RosaryGroup findById(Long id) {
@@ -30,9 +34,12 @@ public class RosaryGroupServiceImpl implements RosaryGroupService {
         return optionalRosaryGroup.get();
     }
 
+    //Find rosary group by group number
+
     @Override
     public RosaryGroup findByNr(int nr) {
-        List<RosaryGroup> rosaryGroupList = rosaryGroupRepository.findAll();
+        List<RosaryGroup> rosaryGroupList = new ArrayList<>();
+        rosaryGroupRepository.findAll().iterator().forEachRemaining(rosaryGroupList::add);
         for(RosaryGroup temp:rosaryGroupList){
             if(temp.getGroupNumber()==nr){
                 return temp;
@@ -41,15 +48,21 @@ public class RosaryGroupServiceImpl implements RosaryGroupService {
         return null;
     }
 
+    //delete rosary group entry by id
+
     @Override
     public void deleteById(Long id) {
         rosaryGroupRepository.deleteById(id);
     }
 
+    //save rosary group entry
+
     @Override
     public void save(RosaryGroup rosaryGroup) {
         rosaryGroupRepository.save(rosaryGroup);
     }
+
+    //save list of rosary group entry's
 
     @Override
     public void saveAll(List<RosaryGroup> rosaryGroupList) {

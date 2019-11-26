@@ -14,6 +14,7 @@
 <div class="container-fluid" style="margin-top: 20px">
     <div class="row">
         <form  th:object="${rosaryGroup}" th:action="@{'/index/' + ${rosaryGroup.groupNumber} + '/edit'}" method="post">
+<!--            todo: ograniczenia-->
             <input type="hidden" class="form-control" id = "gId" th:field="*{id}"/>
             <label for="gNr">Droup Id: </label>
             <input type="text" class="form-control" id="gNr" th:field="*{groupNumber}"/>
@@ -26,8 +27,8 @@
                 <label class="form-check-label" for="opOption1"> Swich </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="opOption" id="exampleRadios2" value="insert">
-                <label class="form-check-label" for="exampleRadios2"> Insert </label>
+                <input class="form-check-input" type="radio" name="opOption" id="opOption2" value="insert">
+                <label class="form-check-label" for="opOption2"> Insert </label>
             </div>
 
         </form>
