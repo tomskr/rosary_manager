@@ -13,6 +13,7 @@
 <h1>Text</h1>
 <div class="container-fluid">
     <div class="row">
+        <div class="col-sm">
         <form  th:object="${rosaryMember}" th:action="@{'/index/' + ${rosaryMember.groupRos.id} + '/show/'}" method="post">
             <div class="container-fluid">
                 <input type="hidden"  class="form-control" th:field="*{memberId}"/>
@@ -73,15 +74,16 @@
                     </div>
                     <div class="col-sm">
                         Rola:
-                        <select type="text" class="form-control">
-                            <option selected>Róża</option>
-                            <option>Zelatorka</option>
-                            <option>Zastempca Zel.</option>
+                        <select th:name="roleList" th:field="*{role}">
+                            <option value="Róża">Róża</option>
+                            <option value="Zelatorka">Zelatorka</option>
+                            <option value="ViceZelatorka">Vice Zelatorka</option>
                         </select>
                     </div>
                 </div>
             </div>
         </form>
+            <div class="col-sm">
     </div>
 </div>
 

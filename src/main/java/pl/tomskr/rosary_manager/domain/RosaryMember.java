@@ -37,11 +37,20 @@ public class RosaryMember {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date birthDate;
     private String notes;
-    private Long memberOrder;
+    private int memberOrder;
     public RosaryMember() {
     }
 
     public RosaryMember(Long groupId) {
         this.groupRos.setId(groupId);
+    }
+
+    @Override
+    public String toString() {
+        return "RosaryMember{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", joiningDate=" + joiningDate +
+                '}';
     }
 }

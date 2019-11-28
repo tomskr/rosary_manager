@@ -1,0 +1,27 @@
+h1{
+    text-align: center;
+}
+
+.Zelatorka {
+    color: red;
+}
+
+.ViceZelatorka{
+    color: green;
+}
+
+
+
+
+#new-button{
+    margin-left: 5%;
+}
+.table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 5% 5% 5% 5%;
+}
+
+.table-border, th,td,tr{
+    border: 1px solid #dee2e6;
+}

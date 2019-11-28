@@ -2,12 +2,16 @@ package pl.tomskr.rosary_manager.controller;
 
 
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.mapping.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import pl.tomskr.rosary_manager.domain.RosaryGroup;
 import pl.tomskr.rosary_manager.domain.RosaryMember;
 import pl.tomskr.rosary_manager.service.RosaryGroupService;
 import pl.tomskr.rosary_manager.service.RosaryMemberService;
+
+import java.util.Comparator;
 
 @Slf4j
 @Controller
@@ -23,7 +27,14 @@ public class RosaryMemberController {
 
     @RequestMapping( value = "/index/{id}/show", method = RequestMethod.GET)
     public String showById(@PathVariable String id, Model model){
-        model.addAttribute("rosaryGroup", rosaryGroupService.findById(Long.valueOf(id)));
+        RosaryGroup rosaryGroup = rosaryGroupService.findById(Long.valueOf(id));
+        rosaryGroup.getRosaryMembers().sort(Comparator.comparing(RosaryMember::toString));
+        int count =0;
+        for(RosaryMember temp:rosaryGroup.getRosaryMembers()){
+           count++;
+           temp.setMemberOrder(count);
+        }
+        model.addAttribute("rosaryGroup", rosaryGroup);
         return "members/show";
     }
 

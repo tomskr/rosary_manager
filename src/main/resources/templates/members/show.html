@@ -7,19 +7,13 @@
     <title>Title</title>
     <link rel="stylesheet"
           href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="/css/show.css">
+<!--    <script type="text/javascript" src="js/show.js"></script>-->
 </head>
 <body>
-<!--Test web jars-->
-<div class="container"><br/>
-    <div class="alert alert-success">
-        <a href="#" class="close" data-dismiss="alert"
-           aria-label="close">×</a>
-        <strong>Success!</strong> It is working as we expected.
-    </div>
-</div>
-<!--Table Index-->
-<table class="table table-hover ">
+<div calss="container-fluid">
+    <h1>Wspólnota Żywego Różańca Świętego pw. <span th:text="${rosaryGroup.getName()}"></span></h1>
+<table class="table table-border ">
     <thead class="thead-inverse">
     <tr>
         <th>Id</th>
@@ -38,8 +32,8 @@
     </tr>
     </thead>
     <tbody>
-        <tr th:each="member:${rosaryGroup.rosaryMembers}">
-            <td th:text="${member.memberId}">334</td>
+        <tr th:each="member:${rosaryGroup.rosaryMembers}" th:class="${member.role}">
+            <td th:text="${member.memberOrder}">334</td>
             <td th:text="${member.firstName}">Kartol</td>
             <td th:text="${member.lastName}">Kartol</td>
             <td th:text="${member.phone}">Kartol</td>
@@ -56,5 +50,6 @@
     </tbody>
 </table>
 <a href="#" th:href="@{'/index/' + ${rosaryGroup.id} +'/show/new'}" class="btn btn-info" role="button" id="new-button">New</a>
+</div>
 </body>
 </html>
