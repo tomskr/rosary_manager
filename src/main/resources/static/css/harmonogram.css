@@ -21,3 +21,13 @@ svg{
     z-index: 3;
 }
 
+#tableNote{
+    text-align: center;
+    font-weight:bold;
+    color: red;
+}
+
+tr th + th{
+    width: 6.5%;
+}
+

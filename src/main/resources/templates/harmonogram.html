@@ -16,25 +16,25 @@
             <table>
                 <tr>
                     <th>Nr Róży, wezwanie, zelator</th>
-                    <th id="STY"></th>
-                    <th id="LUT"></th>
-                    <th id="MAR"></th>
-                    <th id="KWI"></th>
-                    <th id="MAJ"></th>
-                    <th id="CZE"></th>
-                    <th id="LIP"></th>
-                    <th id="SIE"></th>
-                    <th id="WRZ"></th>
-                    <th id="PAZ"></th>
-                    <th id="LIS"></th>
-                    <th id="GRU"></th>
+                    <th class="STY"></th>
+                    <th class="LUT"></th>
+                    <th class="MAR"></th>
+                    <th class="KWI"></th>
+                    <th class="MAJ"></th>
+                    <th class="CZE"></th>
+                    <th class="LIP"></th>
+                    <th class="SIE"></th>
+                    <th class="WRZ"></th>
+                    <th class="PAZ"></th>
+                    <th class="LIS"></th>
+                    <th class="GRU"></th>
                 </tr>
                 <tr th:each="rosaryGroup:${rosaryGroups}" class = "table-row">
-                    <td th:text="${rosaryGroup.name}">
+                    <td th:text="${rosaryGroup.groupNumber} + '.    ' +${rosaryGroup.name}">
                     </td>
                     <td>
                         <svg width="80" height="50" th:style="'position: relative; left:'+ ${0} + 'px'">
-                            <rect  x="1" y="5"  rx="10" ry="10" width="70" height="40" style="fill:aqua;stroke:black;stroke-width:3" />
+<!--                            <rect  x="1" y="5"  rx="10" ry="10" width="70" height="40" style="fill:aqua;stroke:black;stroke-width:3" />-->
                         </svg>
                     </td>
                     <td></td>
@@ -48,6 +48,21 @@
                     <td></td>
                     <td></td>
                     <td></td>
+                </tr>
+                <tr id = "tableNote">
+                    <td>Pierwsze niedziele m-ca 2020</td>
+                    <td class="STY"></td>
+                    <td class="LUT"></td>
+                    <td class="MAR"></td>
+                    <td class="KWI"></td>
+                    <td class="MAJ"></td>
+                    <td class="CZE"></td>
+                    <td class="LIP"></td>
+                    <td class="SIE"></td>
+                    <td class="WRZ"></td>
+                    <td class="PAZ"></td>
+                    <td class="LIS"></td>
+                    <td class="GRU"></td>
                 </tr>
             </table>
         </div>
