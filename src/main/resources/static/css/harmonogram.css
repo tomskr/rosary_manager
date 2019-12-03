@@ -1,5 +1,24 @@
+@media print{
+
+    @page {
+            size:  A3 landscape;
+    }
+}
+body{
+    /*font-family: 'Autour One', sans-serif;*/
+    font-family: 'Aladin', sans-serif;
+}
+img{
+    margin-left: 3%;
+    z-index: 2;
+    width: 8%;
+    height: 8%;
+}
 h1{
     text-align: center;
+    margin-bottom: 0%;
+    font-family: 'Aladin', sans-serif;
+    font-size: 65px;
 }
 
 table, tr, td, th{
@@ -9,25 +28,39 @@ table, tr, td, th{
 }
 th{
     text-align: center;
-    color: red;
+    font-size: 30px;
+    color: #90031E;
 }
 
-table {
-    width: 90%;
-    margin-left: 5%;
+
+
+a{
+    display:inline-block;
+    width: 0%;
 }
 
-svg{
-    z-index: 3;
+
+
+ 
+table{
+    margin-left:2% ;
+    margin-top: 3%;
 }
 
-#tableNote{
+
+tr td + td{
+    width: 95px;
+    font-weight: bold;
+}
+
+tr td{
+    width: 320px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+tr:last-child{
     text-align: center;
-    font-weight:bold;
-    color: red;
+    font-size: 20px;
+    color: #90031E;
 }
-
-tr th + th{
-    width: 6.5%;
-}
-
