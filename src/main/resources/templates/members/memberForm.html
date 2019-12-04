@@ -5,88 +5,89 @@
     <title>Title</title>
     <script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
     <script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="/css/memberForm.css">
-<!--    <script type="text/javascript" src="js/index.js"></script>-->
+    <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/css/memberForm.css" rel="stylesheet" type="text/css">
+    <!--    <script type="text/javascript" src="js/index.js"></script>-->
 </head>
 <body>
 <h1>Text</h1>
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm">
-        <form  th:object="${rosaryMember}" th:action="@{'/index/' + ${rosaryMember.groupRos.id} + '/show/'}" method="post">
-            <div class="container-fluid">
-                <input type="hidden"  class="form-control" th:field="*{memberId}"/>
-                <input type="hidden" class="form-control" th:field="*{groupRos.id}"/>
-                <div class="row">
-                    <div class="col-sm">
-                        Imie:
-                        <input  class="form-control" th:field="*{firstName}"/>
+            <form method="post" th:action="@{'/index/' + ${rosaryMember.groupRos.id} + '/show/'}"
+                  th:object="${rosaryMember}">
+                <div class="container-fluid">
+                    <input class="form-control" th:field="*{memberId}" type="hidden"/>
+                    <input class="form-control" th:field="*{groupRos.id}" type="hidden"/>
+                    <div class="row">
+                        <div class="col-sm">
+                            <label for="firstName">Imie:</label>
+                            <input class="form-control" id="firstName" th:field="*{firstName}"/>
+                        </div>
+                        <div class="col-sm">
+                            <label for="lastName">Nazwisko:</label>
+                            <input class="form-control" id="lastName" th:field="*{lastName}"/>
+                        </div>
                     </div>
-                    <div class="col-sm">
-                        Nazwisko:
-                        <input  class="form-control" th:field="*{lastName}"/>
+                    <div class="row">
+                        <div class="col-sm">
+                            <label for="phone">Telefon:</label>
+                            <input class="form-control" id="phone" th:field="*{phone}"/>
+                        </div>
+                        <div class="col-sm">
+                            Komórka:<label for="mobile"></label>
+                            <input class="form-control" id="mobile" th:field="*{mobile}"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <label for="address">Adress:</label>
+                            <input class="form-control" id="address" th:field="*{address}"/>
+                        </div>
+                        <div class="col-sm">
+                            <label for="postCode">Kod-Pocztowy:</label>
+                            <input class="form-control" id="postCode" th:field="*{postCode}"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <label for="joiningDate">Data Przyjęcia:</label>
+                            <input class="form-control" id="joiningDate" th:field="*{joiningDate}"/>
+                        </div>
+                        <div class="col-sm">
+                            <label for="birthDate">Urodziny:</label>
+                            <input class="form-control" id="birthDate" th:field="*{birthDate}"/>
+                        </div>
+                        <div class="col-sm">
+                            <label for="nameDay">Imieniny:</label>
+                            <input class="form-control" id="nameDay" th:field="*{nameDay}"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <label for="notes">Notatki:</label>
+                            <input class="form-control" id="notes" th:field="*{notes}"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <input id="submit" type="submit" value="Submit"/>
+                        </div>
+                        <div class="col-sm">
+                            <label for="roles">Rola:</label>
+                            <select th:field="*{role}" th:name="roleList" id="roles">
+                                <option value="Róża">Róża</option>
+                                <option value="Zelatorka">Zelatorka</option>
+                                <option value="ViceZelatorka">Vice Zelatorka</option>
+                                <option value="Skarbnik">Skarbnik</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm">
-                        Telefon:
-                        <input  class="form-control" th:field="*{phone}"/>
-                    </div>
-                    <div class="col-sm">
-                        Komórka:
-                        <input  class="form-control" th:field="*{mobile}"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm">
-                        Adress:
-                        <input  class="form-control" th:field="*{address}"/>
-                    </div>
-                    <div class="col-sm">
-                        Kod-Pocztowy:
-                        <input  class="form-control" th:field="*{postCode}"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm">
-                        Data Przyjęcia:
-                        <input  class="form-control" th:field="*{joiningDate}"/>
-                    </div>
-                    <div class="col-sm">
-                        Urodziny:
-                        <input  class="form-control" th:field="*{birthDate}"/>
-                    </div>
-                    <div class="col-sm">
-                        Imieniny:
-                        <input  class="form-control" th:field="*{nameDay}"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm">
-                        Notatki:
-                        <input  class="form-control" th:field="*{notes}"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm">
-                        <input id="submit" type="submit" value="Submit" />
-                    </div>
-                    <div class="col-sm">
-                        Rola:
-                        <select th:name="roleList" th:field="*{role}">
-                            <option value="Róża">Róża</option>
-                            <option value="Zelatorka">Zelatorka</option>
-                            <option value="ViceZelatorka">Vice Zelatorka</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </form>
-            <div class="col-sm">
+            </form>
+        </div>
     </div>
 </div>
-
 </body>
 </html>
 <!--todo add labels-->
