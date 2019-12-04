@@ -1,9 +1,0 @@
-INSERT INTO rosary_group (name,group_number) VALUES ('Świętej Teresy od Dzieciątka Jezus',1);
-INSERT INTO rosary_group (name,group_number) VALUES ('Matki Bożej Róży Duchownej',2);
-INSERT INTO rosary_group (name,group_number) VALUES ('Matki Bożej Gromnicznej',3);
-INSERT INTO rosary_group (name,group_number) VALUES ('św. Elżbiety Węgierskiej',4);
-INSERT INTO rosary_member (member_order,address, birth_date, first_name, joining_date, last_name, mobile, name_day, notes, phone, post_code, role, group_id) VALUES (1,'Sztormowa 7','1964-06-22','Maria','2006-01-01','Jazewska','555555555','1466-11-11', 'Hello Everyone','888888888', '80-345','Róża','1');
-INSERT INTO rosary_member (member_order,address, birth_date, first_name, joining_date, last_name, mobile, name_day, notes, phone, post_code, role, group_id) VALUES (2,'Sztormowa 7','1964-06-22','Maria','2006-01-01','Jazewska','555555555','1466-11-11', 'Hello Everyone','888888888', '80-345','Róża','2');
-INSERT INTO rosary_member (member_order,address, birth_date, first_name, joining_date, last_name, mobile, name_day, notes, phone, post_code, role, group_id) VALUES (3,'Sztormowa 7','1964-06-22','Maria','2006-01-01','Jazewska','555555555','1466-11-11', 'Hello Everyone','888888888', '80-345','Róża','3');
-INSERT INTO rosary_member (member_order,address, birth_date, first_name, joining_date, last_name, mobile, name_day, notes, phone, post_code, role, group_id) VALUES (4,'Sztormowa 7','1964-06-22','Maria','2006-01-01','Jazewska','555555555','1466-11-11', 'Hello Everyone','888888888', '80-345','Róża','4');
-INSERT INTO rosary_member (member_order,address, birth_date, first_name, joining_date, last_name, mobile, name_day, notes, phone, post_code, role, group_id) VALUES (5,'Sztormowa 7','1964-06-22','Maria','2006-01-01','Jazewska','555555555','1466-11-11', 'Hello Everyone','888888888', '80-345','Róża','1');
