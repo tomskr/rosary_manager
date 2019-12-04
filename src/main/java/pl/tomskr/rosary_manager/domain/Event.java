@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -18,8 +19,8 @@ public class Event {
     private Long id;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    private Date eventStart;
+    private LocalDate eventStart;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    private Date eventStop;
+    private LocalDate eventStop;
 }

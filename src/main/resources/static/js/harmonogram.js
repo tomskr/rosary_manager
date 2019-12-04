@@ -9,7 +9,7 @@ $(document).ready(function(){
         while(dt.getDay()!=0){
             dt.setDate(dt.getDate() + 1)
         }
-        $("#" + mieSkr[i]).text(dt.getDate() + " . " + mieSkr[i]);
+        $("." + mieSkr[i]).text(dt.getDate() + " . " + mieSkr[i]);
     }
 });
 

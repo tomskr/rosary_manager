@@ -19,8 +19,9 @@ public class RosaryGroup{
     private Long id;
     private String name;
     private int groupNumber;
+
     @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL)
-    @JoinColumn(name = "event_id")
+    @JoinColumn(name = "group_id")
     private List<Event> eventList = new ArrayList<>();
     @OneToMany(mappedBy = "groupRos", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<RosaryMember> rosaryMembers  = new ArrayList<>();
