@@ -1,5 +1,6 @@
 h1{
     text-align: center;
+    color: #90031E;
 }
 
 .Zelatorka {
@@ -10,18 +11,9 @@ h1{
     color: green;
 }
 
-
-
-
-#new-button{
+table{
+    width: 90%;
     margin-left: 5%;
 }
-.table {
-    width: 90%;
-    border-collapse: collapse;
-    margin: 5% 5% 5% 5%;
-}
 
-.table-border, th,td,tr{
-    border: 1px solid #dee2e6;
-}
+

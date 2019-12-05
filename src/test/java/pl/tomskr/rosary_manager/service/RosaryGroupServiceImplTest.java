@@ -27,19 +27,19 @@ class RosaryGroupServiceImplTest {
         rosaryGroupService = new RosaryGroupServiceImpl(rosaryGroupRepository);
     }
 
-    @Test
-    void getRosaryGroups() throws  Exception {
-        RosaryGroup rosaryGroup = new RosaryGroup();
-        ArrayList<RosaryGroup> rosaryGroupData = new ArrayList();
-
-        rosaryGroupData.add(rosaryGroup);
-        when(rosaryGroupRepository.findAll()).thenReturn(rosaryGroupData);
-
-        List<RosaryGroup> rosaryGroupList = rosaryGroupService.getRosaryGroups();
-
-        assertEquals(rosaryGroupList.size(),1);
-        verify(rosaryGroupRepository, times(1)).findAll();
-    }
+//    @Test
+//    void getRosaryGroups() throws  Exception {
+//        RosaryGroup rosaryGroup = new RosaryGroup();
+//        ArrayList<RosaryGroup> rosaryGroupData = new ArrayList();
+//
+//        rosaryGroupData.add(rosaryGroup);
+//        when(rosaryGroupRepository.findAll()).thenReturn(rosaryGroupData);
+//
+//        List<RosaryGroup> rosaryGroupList = rosaryGroupService.getRosaryGroups();
+//
+//        assertEquals(rosaryGroupList.size(),1);
+//        verify(rosaryGroupRepository, times(1)).findAll();
+//    }
 
 //    @Test
 //    void findById() {

@@ -4,35 +4,37 @@
     <script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
     <script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet"
-          href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="/css/show.css">
-<!--    <script type="text/javascript" src="js/show.js"></script>-->
+    <title>Spis Rórz</title>
+    <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css"
+          rel="stylesheet"/>
+    <link href="/css/show.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div calss="container-fluid">
+<div class="container-fluid">
+    <div class="raw"></div>
+        <div class="col-md-12">
+
     <h1>Wspólnota Żywego Różańca Świętego pw. <span th:text="${rosaryGroup.getName()}"></span></h1>
-<table class="table table-border ">
-    <thead class="thead-inverse">
-    <tr>
-        <th>Id</th>
-        <th>Imie</th>
-        <th>Nazwisko</th>
-        <th>Telefon</th>
-        <th>Komórka</th>
-        <th>Kod-poczt</th>
-        <th>Adress</th>
-        <th>Rok Wst</th>
-        <th>Urodziny</th>
-        <th>Imieniny</th>
-        <th>Notatki</th>
-        <th>Edytuj</th>
-        <th>Usuń</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr th:each="member:${rosaryGroup.rosaryMembers}" th:class="${member.role}">
+    <table class="table-bordered ">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Imie</th>
+            <th>Nazwisko</th>
+            <th>Telefon</th>
+            <th>Komórka</th>
+            <th>Kod-poczt</th>
+            <th>Adress</th>
+            <th>Rok Wst.</th>
+            <th>Urodziny</th>
+            <th>Imieniny</th>
+            <th>Notatki</th>
+            <th>Edytuj</th>
+            <th>Usuń</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr  th:each="member:${rosaryGroup.rosaryMembers}" th:class="${member.role}">
             <td th:text="${member.memberOrder}">334</td>
             <td th:text="${member.firstName}">Kartol</td>
             <td th:text="${member.lastName}">Kartol</td>
@@ -44,12 +46,15 @@
             <td th:text="${#calendars.format(member.birthDate,'dd-MM-YYYY')}">Kartol</td>
             <td th:text="${#calendars.format(member.nameDay,'dd-MM-YYYY')}">Kartol</td>
             <td th:text="${member.notes}">Kartol</td>
-            <td><a href="#" th:href="@{'/index/' + ${rosaryGroup.id} + '/show/'+${member.memberId} +'/edit'}">Edytuj</a></td>
-            <td><a href="#" th:href="@{'/index/' + ${rosaryGroup.id} + '/show/'+${member.memberId} + '/delete'}">Usuń</a></td>
+            <td><a th:href="@{'/index/' + ${rosaryGroup.id} + '/show/'+${member.memberId} +'/edit'}">Edytuj</a>
+            </td>
+            <td><a th:href="@{'/index/' + ${rosaryGroup.id} + '/show/'+${member.memberId} + '/delete'}">Usuń</a></td>
         </tr>
-    </tbody>
-</table>
-<a href="#" th:href="@{'/index/' + ${rosaryGroup.id} +'/show/new'}" class="btn btn-info" role="button" id="new-button">New</a>
+        </tbody>
+    </table>
+    <a class="btn btn-info" href="#" id="new-button" role="button"
+       th:href="@{'/index/' + ${rosaryGroup.id} +'/show/new'}">New</a>
+        </div>
 </div>
 </body>
 </html>
