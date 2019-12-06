@@ -1,21 +1,13 @@
 
-h1{
+h1, h2{
     text-align: center;
 
 }
 
-h3{
-    text-align: center;
-}
-
-.table{
-    width: 90%;
-    border-collapse: collapse;
-    margin: 5% 5% 0 5%;
-}
 
 .table-bordered{
-    border: 1px solid #dee2e6;
+    width: 90%;
+    margin: 5% 5% 0 5%;
 }
 
 table tr th:nth-child(1){

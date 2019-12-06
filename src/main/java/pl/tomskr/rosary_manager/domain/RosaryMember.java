@@ -48,8 +48,8 @@ public class RosaryMember {
     @Override
     public String toString() {
         return "RosaryMember{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
+                "lastName='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
                 ", joiningDate=" + joiningDate +
                 '}';
     }

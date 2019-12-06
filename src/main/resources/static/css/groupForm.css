@@ -4,8 +4,21 @@
 
 #submit-button{
     margin-top: 20px;
+    margin-left: 40%;
+    width: 20%;
+}
+
+
+.card{
+    margin: 5%;
+    width: 90%;
+}
+
+.card-body{
+    padding-left: 5%;
 }
 
 #gName{
-    width: 200px;
+    width: 90%;
+    height: 50px;
 }

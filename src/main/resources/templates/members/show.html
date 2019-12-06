@@ -11,14 +11,14 @@
 </head>
 <body>
 <div class="container-fluid">
-    <div class="raw"></div>
+    <div class="raw">
         <div class="col-md-12">
 
     <h1>Wspólnota Żywego Różańca Świętego pw. <span th:text="${rosaryGroup.getName()}"></span></h1>
     <table class="table-bordered ">
         <thead>
         <tr>
-            <th>Id</th>
+            <th>Nr.</th>
             <th>Imie</th>
             <th>Nazwisko</th>
             <th>Telefon</th>
@@ -43,8 +43,8 @@
             <td th:text="${member.postCode}">Kartol</td>
             <td th:text="${member.address}">Kartol</td>
             <td th:text="${#calendars.format(member.joiningDate,'YYYY')}">Kartol</td>
-            <td th:text="${#calendars.format(member.birthDate,'dd-MM-YYYY')}">Kartol</td>
-            <td th:text="${#calendars.format(member.nameDay,'dd-MM-YYYY')}">Kartol</td>
+            <td th:text="${#calendars.format(member.birthDate,'YYYY-MM-dd')}">Kartol</td>
+            <td th:text="${#calendars.format(member.nameDay,'MM-dd')}">Kartol</td>
             <td th:text="${member.notes}">Kartol</td>
             <td><a th:href="@{'/index/' + ${rosaryGroup.id} + '/show/'+${member.memberId} +'/edit'}">Edytuj</a>
             </td>
@@ -52,9 +52,10 @@
         </tr>
         </tbody>
     </table>
-    <a class="btn btn-info" href="#" id="new-button" role="button"
-       th:href="@{'/index/' + ${rosaryGroup.id} +'/show/new'}">New</a>
+    <a class="btn btn-primary btn-lg" href="#" id="new-button" role="button"
+       th:href="@{'/index/' + ${rosaryGroup.id} +'/show/new'}">Dodaj Rróże</a>
         </div>
+    </div>
 </div>
 </body>
 </html>

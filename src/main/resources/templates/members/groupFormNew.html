@@ -1,23 +1,28 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
     <script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
     <script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet"
-          href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
+          href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="/css/groupForm.css">
 </head>
 <body>
 <div class="container-fluid" style="margin-top: 20px">
     <div class="row">
-        <form  th:object="${rosaryGroup}" th:action="@{/index}" method="post">
-            <input type="hidden" class="form-control" id="gID" th:field="*{id}"/>
-            <label for="gName">Nazwa Grupy:</label>
-            <input type="text" class="form-control" id = "gName" th:field="*{name}"/>
-            <input type="submit" value="Submit" id="submit-button"/>
-        </form>
+        <div class="card">
+            <div class="card-header bg-primary">Formularz</div>
+            <div class="card-body">
+                <form th:object="${rosaryGroup}" th:action="@{/index}" method="post">
+                    <input type="hidden" class="form-control" id="gID" th:field="*{id}"/>
+                    <label for="gName">Nazwa Grupy:</label>
+                    <input type="text" class="form-control" id="gName" th:field="*{name}" autofocus/>
+                    <input type="submit" value="Złóż formularz" id="submit-button" class="btn btn-primary btn-lg"/>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 </body>
