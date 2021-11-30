@@ -42,7 +42,8 @@ public class RosaryMember {
     }
 
     public RosaryMember(Long groupId) {
-        this.groupRos.setId(groupId);
+        //this.groupRos.setId(groupId);
+        //todo: napraw to
     }
 
     @Override

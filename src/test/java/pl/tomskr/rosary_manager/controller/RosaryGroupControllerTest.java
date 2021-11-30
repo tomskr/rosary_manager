@@ -58,7 +58,7 @@ class RosaryGroupControllerTest {
         rosaryGroups.add(new RosaryGroup());
 
         RosaryGroup rosaryGroup = new RosaryGroup();
-        rosaryGroup.setId(1L);
+        //rosaryGroup.setId(1L);
 
         rosaryGroups.add(rosaryGroup);
 

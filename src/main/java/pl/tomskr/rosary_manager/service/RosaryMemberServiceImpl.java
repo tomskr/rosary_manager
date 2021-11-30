@@ -7,10 +7,10 @@ import pl.tomskr.rosary_manager.repository.RosaryMemberRepository;
 import java.util.Optional;
 
 @Service
-public class RosryMemberServiceImpl implements RosaryMemberService {
+public class RosaryMemberServiceImpl implements RosaryMemberService {
     private final RosaryMemberRepository rosaryMemberRepository;
 
-    public RosryMemberServiceImpl(RosaryMemberRepository rosaryMemberRepository) {
+    public RosaryMemberServiceImpl(RosaryMemberRepository rosaryMemberRepository) {
         this.rosaryMemberRepository = rosaryMemberRepository;
     }
 

@@ -11,8 +11,6 @@ import java.util.*;
 
 @Data
 @Entity
-@DynamicUpdate
-@Table(name = "rosary_group")
 public class RosaryGroup{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +21,7 @@ public class RosaryGroup{
     @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL)
     @JoinColumn(name = "group_id")
     private List<Event> eventList = new ArrayList<>();
-    @OneToMany(mappedBy = "groupRos", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany
     private List<RosaryMember> rosaryMembers  = new ArrayList<>();
 
 

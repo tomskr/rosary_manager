@@ -6,16 +6,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.tomskr.rosary_manager.service.RosaryGroupService;
 
 @Controller
-public class HarmonogramController {
+public class TimeTableController {
     private final RosaryGroupService rosaryGroupService;
 
-    public HarmonogramController(RosaryGroupService rosaryGroupService) {
+    public TimeTableController(RosaryGroupService rosaryGroupService) {
         this.rosaryGroupService = rosaryGroupService;
     }
 
-    @RequestMapping(value = "index/harmonogram")
-    public String openHarmonogram(Model model){
+    @RequestMapping(value = "index/timetable")
+    public String openTimeTable(Model model){
         model.addAttribute("rosaryGroups", rosaryGroupService.getRosaryGroups());
-        return "harmonogram";
+        return "timetable";
     }
 }
