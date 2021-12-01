@@ -1,6 +1,9 @@
 package pl.tomskr.rosary_manager.domain;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+
 
 @Entity
 public class RosaryGroup{
@@ -12,10 +15,10 @@ public class RosaryGroup{
     private String name;
 
 
-//    @JoinColumn(name = "group_id")
-//    @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL)
-//    private List<Event> eventList = new ArrayList<>();
-//
+    @JoinColumn(name = "group_id")
+    @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL)
+    private Set<Event> eventSet = new HashSet<>();
+
 //    @OneToMany
 //    private List<RosaryMember> rosaryMembers  = new ArrayList<>();
 
@@ -52,6 +55,12 @@ public class RosaryGroup{
         this.name = name;
     }
 
+    public Set<Event> getEventSet() {
+        return eventSet;
+    }
 
+    public void setEventSet(Set<Event> eventSet) {
+        this.eventSet = eventSet;
+    }
 }
 
