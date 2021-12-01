@@ -22,9 +22,9 @@ public class RosaryGroupController {
 
     @RequestMapping({"", "/", "/index"})
     public String getIndexPage(Model model) {
-//        List<RosaryGroup> rosaryGroupList = rosaryGroupService.getRosaryGroups();
+        List<RosaryGroup> rosaryGroupList = rosaryGroupService.getRosaryGroups();
 //        rosaryGroupList.sort(Comparator.comparing(RosaryGroup::getGroupNumber));
-//        model.addAttribute("rosaryGroups", rosaryGroupList);
+        model.addAttribute("rosaryGroups", rosaryGroupList);
         return "index";
     }
 

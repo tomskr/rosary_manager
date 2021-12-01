@@ -21,10 +21,10 @@ public class DataInitializer implements CommandLineRunner {
         rosaryGroupService.save(group000);
 
         RosaryGroup group001 = new RosaryGroup(2, "Św. Teresy od Dziec. Jezus");
-        rosaryGroupService.save(group000);
+        rosaryGroupService.save(group001);
 
         RosaryGroup group002 = new RosaryGroup(3, "Matki Bożej Fatimskiej");
-        rosaryGroupService.save(group000);
+        rosaryGroupService.save(group002);
 
 
     }

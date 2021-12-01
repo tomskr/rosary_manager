@@ -14,7 +14,7 @@
 <body>
 <div class="landscape">
     <div class = "container-fluid">
-        <h1>Wspólnota Żywego Różańca Św. - Kalendarz na rok 2020<img src="/img/line-drawing-rose.jpg" alt="dark flower png"></h1>
+        <h1>Wspólnota Żywego Różańca Św. - Kalendarz na rok 2022<img src="/img/line-drawing-rose.jpg" alt="dark flower png"></h1>
 
         <div class="container-fluid">
             <table>
@@ -36,16 +36,16 @@
                 <tr th:each="rosaryGroup:${rosaryGroups}" class = "table-row">
                     <td th:text="${rosaryGroup.groupNumber} + '.    ' +${rosaryGroup.name}">
                     </td>
-                    <td>
-                        <a th:each="event:${rosaryGroup.eventList}">
-                        <svg width="80" height="50"   th:style="'position: relative; left:'+ ${(event.eventStart.dayOfYear*3.1)-15} + 'px;z-index:' + ${event.id+3}">
-                            <g>
-                                <rect  x="1" y="5"  rx="10" ry="10" th:width="${((event.eventStop.dayOfYear - event.eventStart.dayOfYear)*3.1)+30}" height="40" style="fill:#D6FFF9;stroke:#D6FFF9;stroke-width:3"/>
-                                <text x="40%" y="50%" dominant-baseline="middle" text-anchor="middle"  fill="black" font-weight="bold"  font-size="25px"  th:text="${event.eventStart.dayOfMonth} + '-' + ${event.eventStop.dayOfMonth}"> Hello </text>
-                            </g>
-                        </svg>
-                        </a>
-                    </td>
+<!--                    <td>-->
+<!--                        <a th:each="event:${rosaryGroup.eventList}">-->
+<!--                        <svg width="80" height="50"   th:style="'position: relative; left:'+ ${(event.eventStart.dayOfYear*3.1)-15} + 'px;z-index:' + ${event.id+3}">-->
+<!--                            <g>-->
+<!--                                <rect  x="1" y="5"  rx="10" ry="10" th:width="${((event.eventStop.dayOfYear - event.eventStart.dayOfYear)*3.1)+30}" height="40" style="fill:#D6FFF9;stroke:#D6FFF9;stroke-width:3"/>-->
+<!--                                <text x="40%" y="50%" dominant-baseline="middle" text-anchor="middle"  fill="black" font-weight="bold"  font-size="25px"  th:text="${event.eventStart.dayOfMonth} + '-' + ${event.eventStop.dayOfMonth}"> Hello </text>-->
+<!--                            </g>-->
+<!--                        </svg>-->
+<!--                        </a>-->
+<!--                    </td>-->
                     <td></td>
                     <td></td>
                     <td></td>
@@ -59,7 +59,7 @@
                     <td></td>
                 </tr>
                 <tr id = "tableNote">
-                    <td>Pierwsze niedziele m-ca 2020</td>
+                    <td>Pierwsze niedziele m-ca 2022</td>
                     <td class="STY"></td>
                     <td class="LUT"></td>
                     <td class="MAR"></td>
