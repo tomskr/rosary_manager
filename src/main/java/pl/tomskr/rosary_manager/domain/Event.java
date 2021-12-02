@@ -2,10 +2,7 @@ package pl.tomskr.rosary_manager.domain;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -22,6 +19,10 @@ public class Event {
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate eventStop;
+
+//    @ManyToOne
+//    @JoinColumn(name = "GROUP_ID", nullable = false)
+//    private RosaryGroup groupRos;
 
     public Event() {
     }
