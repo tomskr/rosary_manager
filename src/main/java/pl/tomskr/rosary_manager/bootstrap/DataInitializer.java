@@ -22,6 +22,7 @@ public class DataInitializer implements CommandLineRunner {
         this.rosaryGroupService = rosaryGroupService;
     }
 
+
     @Override
     public void run(String... args) throws Exception {
         List<RosaryGroup> groups = Arrays.asList(
@@ -40,6 +41,8 @@ public class DataInitializer implements CommandLineRunner {
                 new RosaryGroup(13, "Matki Bożej Gromnicznej", true),
                 new RosaryGroup(14, "O. Pio", true)
         );
-
+//        rosaryGroupService.saveAll(groups);
     }
+
+
 }
