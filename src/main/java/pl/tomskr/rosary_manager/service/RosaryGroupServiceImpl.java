@@ -38,14 +38,13 @@ public class RosaryGroupServiceImpl implements RosaryGroupService {
 
     @Override
     public RosaryGroup findByNr(int nr) {
-//        List<RosaryGroup> rosaryGroupList = new ArrayList<>();
-//        rosaryGroupRepository.findAll().iterator().forEachRemaining(rosaryGroupList::add);
-//        for(RosaryGroup temp:rosaryGroupList){
-//            if(temp.getGroupNumber()==nr){
-//                return temp;
-//            }
-//        }
-        //todo: fix it
+        List<RosaryGroup> rosaryGroupList = new ArrayList<>();
+        rosaryGroupRepository.findAll().iterator().forEachRemaining(rosaryGroupList::add);
+        for(RosaryGroup temp:rosaryGroupList){
+            if(temp.getGroupNumber()==nr){
+                return temp;
+            }
+        }
         return null;
     }
 

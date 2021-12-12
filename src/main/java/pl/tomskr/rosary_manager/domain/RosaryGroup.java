@@ -22,8 +22,10 @@ public class RosaryGroup{
     @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL)
     private List<Event> eventList = new ArrayList<>();
 
-//    @OneToMany
-//    private List<RosaryMember> rosaryMembers  = new ArrayList<>();
+    @JoinColumn(name = "group_id")
+    @OneToMany
+    private List<RosaryMember> rosaryMembers = new ArrayList<>();
+
 
 
     public RosaryGroup() {
@@ -73,6 +75,14 @@ public class RosaryGroup{
 
     public void setEventList(List<Event> eventList) {
         this.eventList = eventList;
+    }
+
+    public List<RosaryMember> getRosaryMembers() {
+        return rosaryMembers;
+    }
+
+    public void setRosaryMembers(List<RosaryMember> rosaryMembers) {
+        this.rosaryMembers = rosaryMembers;
     }
 }
 

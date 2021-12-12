@@ -25,18 +25,18 @@ public class RosaryMemberController {
         this.rosaryMemberService = rosaryMemberService;
     }
 
-//    @RequestMapping( value = "/index/{id}/show", method = RequestMethod.GET)
-//    public String showById(@PathVariable String id, Model model){
-//        RosaryGroup rosaryGroup = rosaryGroupService.findById(Long.valueOf(id));
-//        rosaryGroup.getRosaryMembers().sort(Comparator.comparing(RosaryMember::toString));
+    @RequestMapping( value = "/index/{id}/show", method = RequestMethod.GET)
+    public String showById(@PathVariable String id, Model model){
+        RosaryGroup rosaryGroup = rosaryGroupService.findById(Long.valueOf(id));
+        rosaryGroup.getRosaryMembers();
 //        int count =0;
 //        for(RosaryMember temp:rosaryGroup.getRosaryMembers()){
 //           count++;
 //           temp.setMemberOrder(count);
 //        }
-//        model.addAttribute("rosaryGroup", rosaryGroup);
-//        return "members/show";
-//    }
+        model.addAttribute("rosaryGroup", rosaryGroup);
+        return "members/show";
+    }
 //
 //    @RequestMapping( value = "/index/{id}/show", method = RequestMethod.POST)
 //    public String addMember(@ModelAttribute RosaryMember rosaryMember,@PathVariable String id){

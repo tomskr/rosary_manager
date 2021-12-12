@@ -29,12 +29,13 @@
             <th>Urodziny</th>
             <th>Imieniny</th>
             <th>Notatki</th>
-            <th>Edytuj</th>
-            <th>Usuń</th>
+<!--            <th>Edytuj</th>-->
+<!--            <th>Usuń</th>-->
         </tr>
         </thead>
         <tbody>
-        <tr  th:each="member:${rosaryGroup.rosaryMembers}" th:class="${member.role}">
+<!--        th:class="${member.role}"-->
+        <tr  th:each="member:${rosaryGroup.rosaryMembers}" >
             <td th:text="${member.memberOrder}">334</td>
             <td th:text="${member.firstName}">Kartol</td>
             <td th:text="${member.lastName}">Kartol</td>
@@ -42,18 +43,17 @@
             <td th:text="${member.mobile}">334</td>
             <td th:text="${member.postCode}">Kartol</td>
             <td th:text="${member.address}">Kartol</td>
-            <td th:text="${#calendars.format(member.joiningDate,'YYYY')}">Kartol</td>
+            <td th:text="${member.joiningDate}">Kartol</td>
             <td th:text="${#calendars.format(member.birthDate,'YYYY-MM-dd')}">Kartol</td>
             <td th:text="${#calendars.format(member.nameDay,'MM-dd')}">Kartol</td>
             <td th:text="${member.notes}">Kartol</td>
-            <td><a th:href="@{'/index/' + ${rosaryGroup.id} + '/show/'+${member.memberId} +'/edit'}">Edytuj</a>
-            </td>
-            <td><a th:href="@{'/index/' + ${rosaryGroup.id} + '/show/'+${member.memberId} + '/delete'}">Usuń</a></td>
+<!--            <td><a th:href="@{'/index/' + ${rosaryGroup.id} + '/show/'+${member.memberId} +'/edit'}">Edytuj</a></td>-->
+<!--            <td><a th:href="@{'/index/' + ${rosaryGroup.id} + '/show/'+${member.memberId} + '/delete'}">Usuń</a></td>-->
         </tr>
         </tbody>
     </table>
-    <a class="btn btn-primary btn-lg" href="#" id="new-button" role="button"
-       th:href="@{'/index/' + ${rosaryGroup.id} +'/show/new'}">Dodaj Rróże</a>
+<!--    <a class="btn btn-primary btn-lg" href="#" id="new-button" role="button"-->
+<!--       th:href="@{'/index/' + ${rosaryGroup.id} +'/show/new'}">Dodaj Rróże</a>-->
         </div>
     </div>
 </div>
