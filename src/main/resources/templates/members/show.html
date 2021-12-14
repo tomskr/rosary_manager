@@ -14,7 +14,7 @@
     <div class="raw">
         <div class="col-md-12">
 
-    <h1>Wspólnota Żywego Różańca Świętego pw. <span th:text="${rosaryGroup.getName()}"></span></h1>
+    <h1>Wspólnota Żywego Różańca Świętego pw. <span th:text="${groupName}"></span></h1>
     <table class="table-bordered ">
         <thead>
         <tr>
@@ -29,13 +29,11 @@
             <th>Urodziny</th>
             <th>Imieniny</th>
             <th>Notatki</th>
-<!--            <th>Edytuj</th>-->
-<!--            <th>Usuń</th>-->
         </tr>
         </thead>
         <tbody>
-<!--        th:class="${member.role}"-->
-        <tr  th:each="member:${rosaryGroup.rosaryMembers}" >
+
+        <tr  th:each="member:${rosaryMemberList}" th:class="${member.role}" >
             <td th:text="${member.memberOrder}">334</td>
             <td th:text="${member.firstName}">Kartol</td>
             <td th:text="${member.lastName}">Kartol</td>
@@ -47,13 +45,32 @@
             <td th:text="${#calendars.format(member.birthDate,'YYYY-MM-dd')}">Kartol</td>
             <td th:text="${#calendars.format(member.nameDay,'MM-dd')}">Kartol</td>
             <td th:text="${member.notes}">Kartol</td>
-<!--            <td><a th:href="@{'/index/' + ${rosaryGroup.id} + '/show/'+${member.memberId} +'/edit'}">Edytuj</a></td>-->
-<!--            <td><a th:href="@{'/index/' + ${rosaryGroup.id} + '/show/'+${member.memberId} + '/delete'}">Usuń</a></td>-->
         </tr>
         </tbody>
     </table>
-<!--    <a class="btn btn-primary btn-lg" href="#" id="new-button" role="button"-->
-<!--       th:href="@{'/index/' + ${rosaryGroup.id} +'/show/new'}">Dodaj Rróże</a>-->
+            <h1>Tajemnice <span th:text="${groupName}"></span> 2021</h1>
+            <div class="container">
+                <div class="col-4">
+            <table class="table-bordered ">
+                <thead>
+                <tr>
+                    <th>Imie</th>
+                    <th>Nazwisko</th>
+                    <th>Tajemnice</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr  th:each="member:${rosaryMemberList}" th:class="${member.role}" >
+                    <td th:text="${member.firstName}">Kartol</td>
+                    <td th:text="${member.lastName}">Kartol</td>
+                    <td th:text="${member.preayerPledge}">Kartol</td>
+                </tr>
+                </tbody>
+            </table>
+            </div>
+                <div class="col-8"></div>
+            </div>
         </div>
     </div>
 </div>
