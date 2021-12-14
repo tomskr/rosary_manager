@@ -8,6 +8,7 @@
     <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css"
           rel="stylesheet"/>
     <link href="/css/show.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/js/show.js"></script>
 </head>
 <body>
 <div class="container-fluid">
@@ -48,28 +49,41 @@
         </tr>
         </tbody>
     </table>
-            <h1>Tajemnice <span th:text="${groupName}"></span> 2021</h1>
+            <h1>Tajemnice <span th:text="${groupName}"></span> 2022</h1>
             <div class="container">
-                <div class="col-4">
+                <div class="col">
             <table class="table-bordered ">
                 <thead>
                 <tr>
                     <th>Imie</th>
                     <th>Nazwisko</th>
-                    <th>Tajemnice</th>
+                    <th class="STY">STY</th>
+                    <th class="LUT">LUT</th>
+                    <th class="MAR">MAR</th>
+                    <th class="KWI">KWI</th>
+                    <th class="MAJ">MAJ</th>
+                    <th class="CZE">CZE</th>
+                    <th class="LIP">LIP</th>
+                    <th class="SIE">SIE</th>
+                    <th class="WRZ">WRZ</th>
+                    <th class="PAZ">PAZ</th>
+                    <th class="LIS">LIS</th>
+                    <th class="GRU">GRU</th>
                 </tr>
                 </thead>
                 <tbody>
 
-                <tr  th:each="member:${rosaryMemberList}" th:class="${member.role}" >
-                    <td th:text="${member.firstName}">Kartol</td>
-                    <td th:text="${member.lastName}">Kartol</td>
-                    <td th:text="${member.preayerPledge}">Kartol</td>
+                <tr  th:each="secret:${rosarySecretsLIst}" >
+                    <td th:text="${secret.firstName}">Kartol</td>
+                    <td th:text="${secret.lastName}">Kartol</td>
+                    <a th:each="pledge:${secret.secretCalendar}">
+                    <td th:text="${pledge.name}">Kartol</td>
+                    </a>
                 </tr>
                 </tbody>
             </table>
             </div>
-                <div class="col-8"></div>
+
             </div>
         </div>
     </div>
