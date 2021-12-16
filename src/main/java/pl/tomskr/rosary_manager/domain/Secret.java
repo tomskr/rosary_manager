@@ -20,6 +20,11 @@ public class Secret {
         this.name = name;
     }
 
+    public Secret(String name, String color) {
+        this.name = name;
+        this.color = color;
+    }
+
     public Long getSecretId() {
         return secretId;
     }

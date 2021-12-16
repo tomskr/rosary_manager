@@ -5,14 +5,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import pl.tomskr.rosary_manager.domain.RosaryGroup;
-import pl.tomskr.rosary_manager.domain.RosaryMember;
-import pl.tomskr.rosary_manager.domain.RosarySecret;
-import pl.tomskr.rosary_manager.domain.Secret;
+import pl.tomskr.rosary_manager.domain.*;
 import pl.tomskr.rosary_manager.service.RosaryGroupService;
 import pl.tomskr.rosary_manager.service.RosaryMemberService;
 import pl.tomskr.rosary_manager.service.RosarySecretService;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -35,7 +33,7 @@ public class RosaryMemberController {
     @RequestMapping( value = "/index/{id}/show", method = RequestMethod.GET)
     public String showById(@PathVariable String id, Model model){
         RosaryGroup rosaryGroup = rosaryGroupService.findById(Long.valueOf(id));
-        String groupName = rosaryGroup.getName();
+        RosaryGroup currentGroup = rosaryGroup;
         List<RosaryMember> rosaryMemberList = rosaryGroup.getRosaryMembers();
         List<RosarySecret> rosarySecretsLIst = new ArrayList<RosarySecret>();
         List<RosarySecret> SecretsLIst = new ArrayList<RosarySecret>();
@@ -54,7 +52,12 @@ public class RosaryMemberController {
             counter++;
         }
 
-        model.addAttribute("groupName", groupName);
+//        LocalDate date =  LocalDate.of(2022,01,01);
+//        List<Event> events= new ArrayList<>();
+//        events.add(new Event(date,date.plusDays(7)));
+//        currentGroup.setEventList(events);
+
+        model.addAttribute("currentGroup", currentGroup);
         model.addAttribute("rosaryMemberList", rosaryMemberList);
         model.addAttribute("rosarySecretsLIst", rosarySecretsLIst);
         return "members/show";

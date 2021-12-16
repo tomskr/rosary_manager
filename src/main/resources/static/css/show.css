@@ -1,12 +1,38 @@
-h1{
+@page {
+  size: A4 landscape;
+}
+
+body{
+font-family: 'Jua', sans-serif;
+font-size:19px;
+}
+.Mies{
+font-size:18px;
+}
+
+h2{
+text-align: left;
+}
+
+
+h5{
     text-align: center;
 }
 
-.Zelatorka {
+
+.Zel , .c-red{
     color: red;
 }
 
-.ViceZelatorka{
+.c-blue{
+    color: blue;
+}
+
+.c-green{
+    color: green;
+}
+
+.Z-ca,.Z-Sen{
     color: green;
 }
 
@@ -19,4 +45,23 @@ table{
     margin: 2% 5%;
 }
 
+#dyzur{
+p
+}
 
+table,
+thead,
+tr,
+tbody,
+th,
+td {
+  text-align: center;
+}
+
+th, td{
+border: 2px solid black;
+}
+
+.kwadrat{
+position: absolute;
+}

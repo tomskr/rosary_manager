@@ -1,6 +1,7 @@
 package pl.tomskr.rosary_manager.bootstrap;
 
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.format.datetime.joda.LocalDateParser;
 import org.springframework.stereotype.Component;
 import pl.tomskr.rosary_manager.domain.Event;
 import pl.tomskr.rosary_manager.domain.RosaryGroup;
@@ -42,6 +43,12 @@ public class DataInitializer implements CommandLineRunner {
                 new RosaryGroup(14, "O. Pio", true)
         );
 //        rosaryGroupService.saveAll(groups);
+//        LocalDate date =  LocalDate.of(2022,01,01);
+//        List<RosaryGroup> rosaryGroupList = rosaryGroupService.getRosaryGroups();
+//        rosaryGroupList.get(0).getEventList().add(new Event(date,date.plusDays(7)));
+//        rosaryGroupService.saveAll(rosaryGroupList);
+
+
     }
 
 

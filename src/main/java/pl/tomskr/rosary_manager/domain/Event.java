@@ -20,9 +20,9 @@ public class Event {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate eventStop;
 
-//    @ManyToOne
-//    @JoinColumn(name = "GROUP_ID", nullable = false)
-//    private RosaryGroup groupRos;
+    @ManyToOne
+    @JoinColumn(name = "GROUP_ID", nullable = false)
+    private RosaryGroup groupRos;
 
     public Event() {
     }
@@ -67,5 +67,13 @@ public class Event {
 
     public void setEventStop(LocalDate eventStop) {
         this.eventStop = eventStop;
+    }
+
+    public RosaryGroup getGroupRos() {
+        return groupRos;
+    }
+
+    public void setGroupRos(RosaryGroup groupRos) {
+        this.groupRos = groupRos;
     }
 }

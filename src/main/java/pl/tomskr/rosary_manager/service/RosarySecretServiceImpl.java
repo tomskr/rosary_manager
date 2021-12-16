@@ -21,10 +21,18 @@ public class RosarySecretServiceImpl implements RosarySecretService{
     public List<Secret> secretList(String secret) {
         List<Secret> templateList = new LinkedList<>();
         int index =((Character.getNumericValue(secret.charAt(2))-1)*5)+Character.getNumericValue(secret.charAt(5))-1;
-
+        int count;
         for(int x =0 ;x<=11;x++){
-        templateList.add(new Secret(template.get((index+x+12)%20)));
-            System.out.println((index+x));
+            count = (index +x +12)%20;
+            if(count>=0&&count<5) {
+                templateList.add(new Secret(template.get(count), "c-red"));
+            }else if(count>=5&&count<10) {
+                templateList.add(new Secret(template.get(count),"c-blue"));
+            }else if(count>=10&&count<15) {
+                templateList.add(new Secret(template.get(count)));
+            }else if(count>=15&&count<20) {
+                templateList.add(new Secret(template.get(count),"c-green"));
+            }
         }
 
         return templateList;
