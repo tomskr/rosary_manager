@@ -33,13 +33,15 @@ public class RosaryMemberServiceImpl implements RosaryMemberService {
     @Override
     public List<RosaryMember> sortMembers(List<RosaryMember> rosaryMemberList) {
 
-        final Collator collatorPL = Collator.getInstance(new Locale("pl","PL"));
+        Collator collatorPL = Collator.getInstance(new Locale("pl","PL"));
+
         Comparator primaryComparator = Comparator.comparing(RosaryMember::getLastName);
         return rosaryMemberList
                   .stream()
-                  .sorted(Comparator.comparing(RosaryMember::getLastName,
-                                  nullsLast(naturalOrder())))
-                              .collect(Collectors.toList());
+                  .sorted(Comparator
+                          .comparing(RosaryMember::getLastName, nullsLast(collatorPL))
+                          .thenComparing(RosaryMember::getFirstName)
+                  ).collect(Collectors.toList());
     }
 
     @Override
