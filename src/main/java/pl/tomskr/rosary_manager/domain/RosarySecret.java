@@ -14,6 +14,7 @@ public class RosarySecret {
 
     private String firstName;
     private String lastName;
+    private String role;
 
     @OneToMany
     private List<Secret> secretCalendar;
@@ -32,7 +33,12 @@ public class RosarySecret {
         this.secretCalendar = secretCalendar;
     }
 
-
+    public RosarySecret(String firstName, String lastName, String role, List<Secret> secretCalendar) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.role = role;
+        this.secretCalendar = secretCalendar;
+    }
 
     public Long getSecretId() {
         return secretId;
@@ -64,5 +70,13 @@ public class RosarySecret {
 
     public void setSecretCalendar(List<Secret> secretCalendar) {
         this.secretCalendar = secretCalendar;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

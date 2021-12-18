@@ -41,12 +41,15 @@ public class RosarySecretServiceImpl implements RosarySecretService{
     @Override
     public List<RosarySecret> secretOrder(List<RosarySecret> rosarySecrets) {
         int count = 0;
-        List<RosarySecret> rosarySecretList = new LinkedList<>();
+        List<RosarySecret> rosarySecretList = new ArrayList<RosarySecret>();
         for(int x = 0;x<=19;x++) {
             for (RosarySecret secret : rosarySecrets) {
+
                 int index = template.indexOf(secret.getSecretCalendar().get(0).getName());
-                if(index==x)
-                rosarySecretList.add(index,secret);
+                if(index==x) {
+                    rosarySecretList.add(index, secret);
+                    break;
+                }
             }
         }
         return rosarySecretList;

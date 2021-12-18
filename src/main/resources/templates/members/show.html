@@ -7,72 +7,80 @@
     <title>Spis Rórz</title>
     <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css"
           rel="stylesheet"/>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
     <link href="/css/show.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="/js/show.js"></script>
+    <script src="/js/show.js" type="text/javascript"></script>
 </head>
 <body>
 <div class="container-fluid">
     <br>
     <div class="row">
         <div class="col-1"></div>
-        <div class="col-1 number"><h3>NR <span th:text = "${rosaryMemberList[0].groupRos.groupNumber}"></span></h3></div>
-        <div class="col-7"><h5>Wspólnota Żywego Różańca Świętego pw. <span th:text="${currentGroup.name}"></span> </h5> </div>
+        <div class="col-1 number"><h3>NR <span th:text="${rosaryMemberList[0].groupRos.groupNumber}"></span></h3></div>
+        <div class="col-7"><h5>Wspólnota Żywego Różańca Świętego pw. <span th:text="${currentGroup.name}"></span></h5>
+        </div>
         <div class="col-2"><h4>A.D.2022</h4></div>
     </div>
     <div class="row">
         <div class="col-lg-12">
-        <table class="table-bordered-2px table-flex">
-        <thead>
-        <tr>
-            <th scope="col">Nr.</th>
-            <th scope="col">Role</th>
-            <th scope="col">Imie</th>
-            <th scope="col">Nazwisko</th>
-            <th scope="col">Telefon</th>
-            <th scope="col">Komórka</th>
-            <th scope="col">Kod-poczt</th>
-            <th scope="col">Adress</th>
-            <th scope="col">Rok Wst.</th>
-            <th scope="col">Urodziny</th>
-            <th scope="col">Imie.</th>
-<!--            <th scope="col">Notatki</th>-->
-        </tr>
-        </thead>
-        <tbody>
+            <table class="table-bordered-2px table-flex">
+                <thead>
+                <tr>
+                    <th scope="col">Nr.</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Imie</th>
+                    <th scope="col">Nazwisko</th>
+                    <th scope="col">Telefon</th>
+                    <th scope="col">Komórka</th>
+                    <th scope="col">Kod-poczt</th>
+                    <th scope="col">Adress</th>
+                    <th scope="col">Rok Wst.</th>
+                    <th scope="col">Urodziny</th>
+                    <th scope="col">Imie.</th>
+<!--                                <th scope="col">Notatki</th>-->
+                </tr>
+                </thead>
+                <tbody>
 
-        <tr scope="row" th:each="member:${rosaryMemberList}" th:class="${member.role}">
-            <td th:text="${member.memberOrder}">334</td>
-            <td th:text="${member.role}">334</td>
-            <td th:text="${member.firstName}">Kartol</td>
-            <td th:text="${member.lastName}">Kartol</td>
-            <td th:text="${member.phone}">Kartol</td>
-            <td th:text="${member.mobile}">334</td>
-            <td th:text="${member.postCode}">Kartol</td>
-            <td th:text="${member.address}">Kartol</td>
-            <td th:text="${member.joiningDate}">Kartol</td>
-            <td th:text="${#calendars.format(member.birthDate,'YYYY-MM-dd')}">Kartol</td>
-            <td th:text="${#calendars.format(member.nameDay,'MM-dd')}">Kartol</td>
-<!--            <td th:text="${member.notes}">Kartol</td>-->
-        </tr>
-        </tbody>
-    </table>
-            </div></div>
-            <p style="page-break-after: always;">&nbsp;</p>
-            <p style="page-break-before: always;">&nbsp;</p>
-        <div class="row">
-            <div class="col-1"></div>
-            <div class="col-1 number"><h3>NR <span th:text = "${rosaryMemberList[0].groupRos.groupNumber}"></span></h3></div>
-            <div class="col-7"><h5>Wspólnota Żywego Różańca Świętego pw. <span th:text="${currentGroup.name}"></span> </h5> </div>
-            <div class="col-2"><h4>A.D.2022</h4></div>
+                <tr scope="row" th:class="${member.role}" th:each="member:${rosaryMemberList}">
+                    <td th:text="${member.memberOrder}">334</td>
+                    <td th:text="${member.role}">334</td>
+                    <td th:text="${member.firstName}">Kartol</td>
+                    <td th:text="${member.lastName}">Kartol</td>
+                    <td th:text="${member.phone}">Kartol</td>
+                    <td th:text="${member.mobile}">334</td>
+                    <td th:text="${member.postCode}">Kartol</td>
+                    <td th:text="${member.address}">Kartol</td>
+                    <td th:text="${member.joiningDate}">Kartol</td>
+                    <td th:text="${#calendars.format(member.birthDate,'YYYY-MM-dd')}">Kartol</td>
+                    <td th:text="${#calendars.format(member.nameDay,'MM-dd')}">Kartol</td>
+<!--                                <td th:text="${member.notes}">Kartol</td>-->
+                </tr>
+                </tbody>
+            </table>
         </div>
-            <div class="row">
-                <div class="col-lg-12">
+    </div>
+    <div class="row">
+        <div class="col">
+            <img class="dark_rose align-baseline" src="/img/rose_branch.png" alt="dark flower png">
+        </div>
+    </div>
+    <p style="page-break-after: always;">&nbsp;</p>
+    <p style="page-break-before: always;">&nbsp;</p>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-1 number"><h3>NR <span th:text="${rosaryMemberList[0].groupRos.groupNumber}"></span></h3></div>
+        <div class="col-7"><h5>Wspólnota Żywego Różańca Świętego pw. <span th:text="${currentGroup.name}"></span></h5>
+        </div>
+        <div class="col-2"><h4>A.D.2022</h4></div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
             <table class="table-bordered-2px">
                 <thead>
-                <tr id = "secrets">
+                <tr id="secrets">
                     <th>Imie</th>
                     <th>Nazwisko</th>
                     <th class="STY Mies">STY</th>
@@ -91,13 +99,20 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td colspan="2" class ="text-center mx-4" height="45">Dyżuty</td>
-                    <td colspan="inline-block" >
-                        <a th:each="event:${currentGroup.eventList}" class="kwadrat">
-                            <svg width="80" height="45"   th:style="'position: absolute; bottom:-25px;left:'+ ${(event.eventStart.dayOfYear*2.2)-60} + 'px;z-index:' + ${event.id+3}">
+                    <td class="text-center mx-4" colspan="2" height="45">Dyżuty</td>
+                    <td colspan="inline-block">
+                        <a class="kwadrat" th:each="event:${currentGroup.eventList}">
+                            <svg height="45" th:style="'position: absolute; bottom:-25px;left:'+ ${(event.eventStart.dayOfYear*2.2)-60} + 'px;z-index:' + ${event.id+3}"
+                                 width="80">
                                 <g>
-                                    <rect  x="2" y="5"  rx="10" ry="10" th:width="${((event.eventStop.dayOfYear - event.eventStart.dayOfYear)*3.2)+40}" height="40" style="fill:#D6FFF9;stroke:#D6FFF9;stroke-width:3"/>
-                                    <text x="40%" y="50%" dominant-baseline="middle" text-anchor="middle"  fill="black" font-weight="bold"  font-size="25px"  th:text="${event.eventStart.dayOfMonth} + '-' + ${event.eventStop.dayOfMonth}"> Hello </text>
+                                    <rect height="40" rx="10" ry="10" style="fill:#D6FFF9;stroke:#D6FFF9;stroke-width:3"
+                                          th:width="${((event.eventStop.dayOfYear - event.eventStart.dayOfYear)*3.2)+40}"
+                                          x="2" y="5"/>
+                                    <text dominant-baseline="middle" fill="black" font-size="25px" font-weight="bold" text-anchor="middle"
+                                          th:text="${event.eventStart.dayOfMonth} + '-' + ${event.eventStop.dayOfMonth}" x="40%"
+                                          y="50%">
+                                        Hello
+                                    </text>
                                 </g>
                             </svg>
                         </a>
@@ -115,20 +130,20 @@
                     <td></td>
                 </tr>
 
-                <tr  th:each="secret:${rosarySecretsLIst}" >
-                    <td th:text="${secret.firstName}" class="px-2">Kartol</td>
-                    <td th:text="${secret.lastName}" class="px-2">Kartol</td>
+                <tr th:each="secret:${rosarySecretsLIst}">
+                    <td th:class="${secret.role}" th:text="${secret.firstName}">Kartol</td>
+                    <td th:class="${secret.role}" th:text="${secret.lastName}">Kartol</td>
                     <a th:each="pledge:${secret.secretCalendar}">
-                    <td th:text="${pledge.name}" th:class="${pledge.color}">Kartol</td>
+                        <td th:class="${pledge.color}" th:text="${pledge.name}">Kartol</td>
                     </a>
                 </tr>
                 </tbody>
             </table>
-            </div>
+        </div>
 
-            </div>
-<div class="row"><br></div>
     </div>
+    <div class="row"><br></div>
+</div>
 
 </body>
 </html>

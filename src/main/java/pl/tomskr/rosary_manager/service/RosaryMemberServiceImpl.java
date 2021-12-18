@@ -4,7 +4,14 @@ import org.springframework.stereotype.Service;
 import pl.tomskr.rosary_manager.domain.RosaryMember;
 import pl.tomskr.rosary_manager.repository.RosaryMemberRepository;
 
+import java.text.Collator;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
+import java.util.stream.Collectors;
+
+import static java.util.Comparator.*;
 
 @Service
 public class RosaryMemberServiceImpl implements RosaryMemberService {
@@ -21,6 +28,18 @@ public class RosaryMemberServiceImpl implements RosaryMemberService {
             throw new RuntimeException("Member not found");
         }
         return optionalRosaryMember.get();
+    }
+
+    @Override
+    public List<RosaryMember> sortMembers(List<RosaryMember> rosaryMemberList) {
+
+        final Collator collatorPL = Collator.getInstance(new Locale("pl","PL"));
+        Comparator primaryComparator = Comparator.comparing(RosaryMember::getLastName);
+        return rosaryMemberList
+                  .stream()
+                  .sorted(Comparator.comparing(RosaryMember::getLastName,
+                                  nullsLast(naturalOrder())))
+                              .collect(Collectors.toList());
     }
 
     @Override

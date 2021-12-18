@@ -10,11 +10,10 @@ import pl.tomskr.rosary_manager.service.RosaryGroupService;
 import pl.tomskr.rosary_manager.service.RosaryMemberService;
 import pl.tomskr.rosary_manager.service.RosarySecretService;
 
+import java.text.Collator;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Controller
@@ -34,31 +33,34 @@ public class RosaryMemberController {
     public String showById(@PathVariable String id, Model model){
         RosaryGroup rosaryGroup = rosaryGroupService.findById(Long.valueOf(id));
         RosaryGroup currentGroup = rosaryGroup;
+
         List<RosaryMember> rosaryMemberList = rosaryGroup.getRosaryMembers();
         List<RosarySecret> rosarySecretsLIst = new ArrayList<RosarySecret>();
         List<RosarySecret> SecretsLIst = new ArrayList<RosarySecret>();
+
         rosaryMemberList.stream().forEach(rosaryMember -> {
-            SecretsLIst.add(new RosarySecret(rosaryMember.getFirstName(),rosaryMember.getLastName(),rosarySecretService.secretList(rosaryMember.getPreayerPledge())));});
+            SecretsLIst.add(new RosarySecret(
+                    rosaryMember.getFirstName(),
+                    rosaryMember.getLastName(),
+                    rosaryMember.getRole(),
+                    rosarySecretService.secretList(rosaryMember.getPreayerPledge())));});
 
-        Comparator<RosaryMember> compareByName = (RosaryMember rm1, RosaryMember rm2) -> rm1.getFirstName().compareTo(rm2.getFirstName());
 
-        rosaryMemberList.sort(Comparator.comparing(RosaryMember::getLastName, Comparator.nullsLast(Comparator.naturalOrder())));
+        List<RosaryMember> orderedRosaryMemberList = rosaryMemberService.sortMembers(rosaryMemberList);
+
+
         rosarySecretsLIst = rosarySecretService.secretOrder(SecretsLIst);
 
         int counter = 1;
-        for (RosaryMember member: rosaryMemberList)
+        for (RosaryMember member: orderedRosaryMemberList)
         {
             member.setMemberOrder(counter);
             counter++;
         }
 
-//        LocalDate date =  LocalDate.of(2022,01,01);
-//        List<Event> events= new ArrayList<>();
-//        events.add(new Event(date,date.plusDays(7)));
-//        currentGroup.setEventList(events);
 
         model.addAttribute("currentGroup", currentGroup);
-        model.addAttribute("rosaryMemberList", rosaryMemberList);
+        model.addAttribute("rosaryMemberList", orderedRosaryMemberList);
         model.addAttribute("rosarySecretsLIst", rosarySecretsLIst);
         return "members/show";
     }
