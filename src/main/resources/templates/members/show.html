@@ -99,14 +99,14 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td class="text-center mx-4" colspan="2" height="45">Dyżuty</td>
-                    <td colspan="inline-block">
+                    <td class="text-center mx-4" colspan="2" height="45">Dyżury</td>
+                    <td id="parent" colspan="12 inline-block">
                         <a class="kwadrat" th:each="event:${currentGroup.eventList}">
-                            <svg height="45" th:style="'position: absolute; bottom:-25px;left:'+ ${(event.eventStart.dayOfYear*2.2)-60} + 'px;z-index:' + ${event.id+3}"
+                            <svg height="45" th:style="'position: relative; bottom: 0px;left:'+ ${(event.eventStart.dayOfYear*1.25)-220} + 'px;z-index:' + ${event.id+3}"
                                  width="80">
                                 <g>
                                     <rect height="40" rx="10" ry="10" style="fill:#D6FFF9;stroke:#D6FFF9;stroke-width:3"
-                                          th:width="${((event.eventStop.dayOfYear - event.eventStart.dayOfYear)*3.2)+40}"
+                                          th:width="${((event.eventStop.dayOfYear - event.eventStart.dayOfYear)*1.8)+40}"
                                           x="2" y="5"/>
                                     <text dominant-baseline="middle" fill="black" font-size="25px" font-weight="bold" text-anchor="middle"
                                           th:text="${event.eventStart.dayOfMonth} + '-' + ${event.eventStop.dayOfMonth}" x="40%"
@@ -115,19 +115,11 @@
                                     </text>
                                 </g>
                             </svg>
-                        </a>
+<!--                            <svg id="mySvg" width="100%" height="45px" style="border:1px solid #000000" >-->
+<!--                                <line x1="150" y1="0" x2="150"  y2="45" stroke="black" />-->
+<!--                            </svg>-->
+
                     </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
                 </tr>
 
                 <tr th:each="secret:${rosarySecretsLIst}">
@@ -146,4 +138,19 @@
 </div>
 
 </body>
+<!--<script>-->
+<!--var svg = $("#mySvg");-->
+<!--var $td = $("#mySvg").parent();-->
+<!--svg.width = $td.width();-->
+<!--svg.height = $td.height();-->
+<!--var svgSpan = svg.width;-->
+
+<!--$(window).resize(function(){-->
+<!--$("#mySvg line").attr({x1: svgSpan/12, x2: svgSpan/12});-->
+<!--for (let i = 2; i < 13; i++) {-->
+<!--$("#mySvg line").clone().appendTo("#mySvg").attr({x1: svgSpan*i/12, x2: svgSpan*i/12});-->
+<!--}-->
+<!--});-->
+
+<!--</script>-->
 </html>

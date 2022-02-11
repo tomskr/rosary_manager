@@ -9,8 +9,4 @@ $(document).ready(function(){
         $("." + mieSkr[i]).text(dt.getDate() + " . " + mieSkr[i]);
     }
 
-    var c = document.getElementById("myCanvas");
-    var ctx = c.getContext("2d");
-    ctx.fillText('Hello', 1100, 20);
-    ctx.stroke();
 });
